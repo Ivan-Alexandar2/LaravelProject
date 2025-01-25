@@ -76,6 +76,15 @@
                 <textarea class="form-control" id="motivation_letter" name="motivation_letter" rows="5" required></textarea>
             </div>
             <button type="submit" class="btn btn-orange w-100">Submit Application</button>
+            @if ($errors->any()) <!-- TUKA -->
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </form>
     </div>
 </body>

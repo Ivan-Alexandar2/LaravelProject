@@ -56,6 +56,7 @@ Route::get('/apply/{job}', [ApplicationController::class, 'showApplicationForm']
 
 // Маршрут за обработка на формата за кандидатстване
 Route::post('/apply/{job}', [ApplicationController::class, 'submitApplication'])->name('apply.submit');
+Route::post('/apply/{jobId}', [ApplicationController::class, 'submitApplication'])->name('apply.submit');
 
 // Dashboard маршрути (за аутентикирани потребители)
 Route::middleware('auth')->group(function () {

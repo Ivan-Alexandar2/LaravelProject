@@ -21,7 +21,7 @@ return new class extends Migration
         $table->timestamps();
 
         // Дефиниране на външни ключове
-        $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
+        $table->foreign('job_id')->references('id')->on('job_listings')->onDelete('cascade'); // Промени `jobs` на `job_listings`
         $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

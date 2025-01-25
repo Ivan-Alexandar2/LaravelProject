@@ -36,24 +36,31 @@ class ApplicationController extends Controller
     }
 
     public function submitApplication(Request $request, $jobId)
-    {
-        // Валидация на данните
-        $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'motivation_letter' => 'required|string',
-        ]);
-
-        // Запазване на кандидатурата
-        Application::create([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'motivation_letter' => $request->motivation_letter,
-            'job_id' => $jobId,
-            'user_id' => auth()->id(), // Вземи ID на текущия потребител
-        ]);
-
-        // Пренасочване с успешно съобщение
-        return redirect()->route('home')->with('success', 'Your application has been submitted successfully!');
+{
+    // Проверка дали потребителят е влязъл
+    if (!auth()->check()) {
+        dd($jobId);
+        return redirect()->route('login')->with('error', 'You need to log in to submit an application.');
     }
+
+    // Валидация на данните
+    $validatedData = $request->validate([
+        'first_name' => 'required|string|max:255',
+        'last_name' => 'required|string|max:255',
+        'motivation_letter' => 'required|string',
+        'job_id' => 'required|exists:job_listings,id', // Валидация за job_id
+    ]);
+
+    // Запазване на кандидатурата
+    $application = Application::create([
+        'first_name' => $validatedData['first_name'],
+        'last_name' => $validatedData['last_name'],
+        'motivation_letter' => $validatedData['motivation_letter'],
+        'job_id' => $validatedData['job_id'], // Използвай job_id от валидираните данни
+        'user_id' => auth()->id(), // Вземи ID на текущия потребител
+    ]);
+
+    // Пренасочване с успешно съобщение
+    return redirect()->route('home')->with('success', 'Your application has been submitted successfully!');
+}
 }
