@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $category }} - TechJobs</title>
+    <title>{{ $category }} - Jobe</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -61,7 +61,7 @@
     <nav class="navbar navbar-expand-lg py-3">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <h2 class="text-orange" style="color: #FF6B35; font-weight: 700;">TechJobs</h2>
+                <h2 class="text-orange" style="color: #FF6B35; font-weight: 700;">Jobe</h2>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -106,16 +106,16 @@
         <div class="container">
             <h3 class="section-title text-center">{{ $category }} Jobs</h3>
             <div class="row">
-                @foreach ($jobs as $job)
+            @foreach ($jobs as $job)
                 <div class="col-md-4">
                     <div class="job-card">
-                        <h5 class="job-title">{{ $job['title'] }}</h5>
-                        <p class="job-details">{{ $job['company'] }} · {{ $job['location'] }}</p>
-                        <p class="job-details">{{ $job['salary'] }}</p>
-                        <a href="#" class="btn btn-orange">Apply Now</a>
+                        <h5 class="job-title">{{ $job->title }}</h5>
+                        <p class="job-details">{{ $job->company }} · {{ $job->location }}</p>
+                        <p class="job-details">{{ $job->salary }}</p>
+                        <a href="{{ route('apply.form', $job->id) }}" class="btn btn-orange">Apply Now</a>
                     </div>
                 </div>
-                @endforeach
+            @endforeach
             </div>
         </div>
     </section>
@@ -126,7 +126,7 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-md-4">
-                    <h4 class="text-orange mb-4">TechJobs</h4>
+                    <h4 class="text-orange mb-4">Jobe</h4>
                     <p>Connecting talent with opportunity</p>
                 </div>
                 <div class="col-md-2">
@@ -148,7 +148,7 @@
                 <div class="col-md-3">
                     <h5>Contact</h5>
                     <ul class="list-unstyled">
-                        <li>info@techjobs.com</li>
+                        <li>info@jobe.com</li>
                         <li>+1 (555) 123-4567</li>
                     </ul>
                 </div>

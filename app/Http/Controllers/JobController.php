@@ -12,7 +12,11 @@ class JobController extends Controller
         $jobs = Job::all();
         return view('jobs.index', compact('jobs'));
     }
-
+    public function showApplicationForm($jobId) // ----------------------
+    {
+    $job = Job::findOrFail($jobId); // Вземи позицията по ID
+    return view('apply', compact('job'));
+    } // NOVOTO ------------------------------------------
     public function create()
     {
         return view('jobs.create');

@@ -82,6 +82,35 @@
         .job-card:hover {
             box-shadow: 0 10px 30px rgba(255,107,53,0.2);
         }
+        /* Дизайн за категориите */
+        .category-card {
+            background: #1a1a1a;
+            border-radius: 15px;
+            transition: transform 0.3s, border 0.3s;
+            cursor: pointer;
+            padding: 30px;
+            text-align: center;
+            color: #fff; /* Добавяме цвят на текста */
+            text-decoration: none; /* Премахваме подчертаването */
+            display: block; /* Правим линка да заема цялата площ */
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            border: 2px solid #FF6B35;
+            text-decoration: none; /* Премахваме подчертаването при hover */
+        }
+
+        .category-card h5 {
+            color: #fff; /* Цвят на заглавието */
+        }
+
+        .category-card .text-muted {
+            color: #ccc !important; /* Цвят на втория текст */
+        }
+        .category-card:hover h5 {
+            color: #FF6B35; /* Оранжев цвят на заглавието при hover */
+        }
     </style>
 </head>
 <body>
@@ -152,21 +181,30 @@
 
     <!-- Categories Section -->
     <section class="py-5">
-        <div class="container">
-            <h3 class="section-title mb-5">Popular Categories</h3>
-            <div class="row g-4">
-                @foreach(['Web Development', 'Mobile Development', 'Data Science', 'UI/UX Design', 'DevOps', 'Cybersecurity'] as $category)
-                <div class="col-md-4">
-                    <div class="category-card p-4 text-center">
-                        <i class="fas fa-code fs-1 text-orange mb-3"></i>
-                        <h5>{{ $category }}</h5>
-                        <p class="text-muted">1200+ Jobs Available</p>
+    <div class="container">
+        <h3 class="section-title text-center">Popular Categories</h3>
+        <div class="row g-4">
+            @foreach ([
+                ['title' => 'Web Development', 'slug' => 'web-development', 'icon' => 'fas fa-code'],
+                ['title' => 'Mobile Development', 'slug' => 'mobile-development', 'icon' => 'fas fa-mobile-alt'],
+                ['title' => 'Data Science', 'slug' => 'data-science', 'icon' => 'fas fa-chart-line'],
+                ['title' => 'UI/UX Design', 'slug' => 'ui-ux-design', 'icon' => 'fas fa-palette'],
+                ['title' => 'DevOps', 'slug' => 'devops', 'icon' => 'fas fa-server'],
+                ['title' => 'Cybersecurity', 'slug' => 'cybersecurity', 'icon' => 'fas fa-shield-alt'],
+            ] as $category)
+            <div class="col-md-4">
+                <a href="{{ route('category', ['category' => $category['slug']]) }}" class="text-decoration-none">
+                    <div class="category-card">
+                        <i class="{{ $category['icon'] }} icon-large"></i>
+                        <h5>{{ $category['title'] }}</h5>
+                        <p class="text-muted">300+ Jobs Available</p>
                     </div>
-                </div>
-                @endforeach
+                </a>
             </div>
+            @endforeach
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Featured Jobs -->
     <section class="py-5 bg-dark">
