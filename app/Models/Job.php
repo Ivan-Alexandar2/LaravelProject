@@ -22,7 +22,8 @@ class Job extends Model
     // Връзка с кандидатурите
     public function applications()
     {
-        return $this->hasMany(Application::class);
+        //return $this->hasMany(Application::class);  ------- tova vmesto onova
+        return $this->hasMany(Application::class, 'job_id');
     }
 }
 

@@ -27,7 +27,8 @@ class ApplicationController extends Controller
         'first_name' => 'required',
         'last_name' => 'required',
         'motivation_letter' => 'required',
-        'job_id' => 'required|exists:jobs,id',
+        'job_id' => 'required|exists:job_listings,id',
+        //'job_id' => 'required|exists:jobs,id', ---------- vmestoo gornoto
     ]);
 
     Application::create($validatedData);
@@ -36,10 +37,11 @@ class ApplicationController extends Controller
     }
 
     public function submitApplication(Request $request, $jobId)
-{
+    {
+        //dd($request->all());
+        //dd($jobId);
     // Проверка дали потребителят е влязъл
     if (!auth()->check()) {
-        dd($jobId);
         return redirect()->route('login')->with('error', 'You need to log in to submit an application.');
     }
 
@@ -62,5 +64,5 @@ class ApplicationController extends Controller
 
     // Пренасочване с успешно съобщение
     return redirect()->route('home')->with('success', 'Your application has been submitted successfully!');
-}
+    }
 }

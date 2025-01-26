@@ -62,7 +62,8 @@
     <div class="form-container">
         <h3 class="text-center mb-4">Apply for {{ $job->title }}</h3>
         <form action="{{ route('apply.submit', $job->id) }}" method="POST">
-            @csrf
+        @csrf
+            <input type="hidden" name="job_id" value="{{ $job->id }}"> <!-- Скрито поле за job_id -->
             <div class="mb-3">
                 <label for="first_name" class="form-label">First Name</label>
                 <input type="text" class="form-control" id="first_name" name="first_name" required>
@@ -76,6 +77,7 @@
                 <textarea class="form-control" id="motivation_letter" name="motivation_letter" rows="5" required></textarea>
             </div>
             <button type="submit" class="btn btn-orange w-100">Submit Application</button>
+        </form>
             @if ($errors->any()) <!-- TUKA -->
                 <div class="alert alert-danger">
                     <ul>
