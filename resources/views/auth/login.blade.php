@@ -1,3 +1,59 @@
+<style>
+        /* Черен фон */
+        .bg-dark {
+            background-color: #1a1a1a;
+        }
+
+        /* Бял текст */
+        .text-white {
+            color: white;
+        }
+
+        /* Оранжев фон */
+        .bg-orange {
+            background-color: #FF6B35;
+        }
+
+        /* Оранжев текст */
+        .text-orange {
+            color: #FF6B35;
+        }
+
+        /* Оранжев бутон */
+        .btn-orange {
+            background-color: #FF6B35;
+            border-color: #FF6B35;
+            color: white;
+        }
+
+        .btn-orange:hover {
+            background-color: #e65a2b;
+            border-color: #e65a2b;
+        }
+
+        /* Допълнителни стилове за форми */
+        .form-control {
+            background-color: #1a1a1a;
+            color: white;
+            border: 1px solid #ced4da;
+        }
+
+        .form-control:focus {
+            background-color: #1a1a1a;
+            color: white;
+            border-color: #FF6B35;
+            box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.25);
+        }
+
+        .invalid-feedback {
+            color: #dc3545;
+        }
+
+        .is-invalid {
+            border-color: #dc3545;
+        }
+</style>
+
 @extends('layouts.app')
 
 @section('content')
