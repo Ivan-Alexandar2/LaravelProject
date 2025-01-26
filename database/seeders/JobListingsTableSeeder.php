@@ -37,6 +37,15 @@ class JobListingsTableSeeder extends Seeder
                 'image' => 'images/companies/dataInnovators.jpg',
                 'category' => 'data-science',
             ],
+            [
+                'title' => 'UX management',
+                'description' => 'We need a UX manager to manage the UX design.',
+                'company' => 'Data Innovators',
+                'location' => 'Berlin',
+                'salary' => 9200,
+                'image' => 'images/companies/dataInnovators.jpg',
+                'category' => 'ui-ux-design',
+            ],          
             // Mogat da se dobavqt oshte tuk
         ];
 
