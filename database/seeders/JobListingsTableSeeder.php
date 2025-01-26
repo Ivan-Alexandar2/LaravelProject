@@ -8,25 +8,40 @@ use Illuminate\Database\Seeder;
 class JobListingsTableSeeder extends Seeder
 {
     public function run()
-    {       
-        Job::create([
-            'title' => 'Senior Laravel Developer',
-            'description' => 'We are looking for an experienced Laravel developer.',
-            'company' => 'Tech Corp',
-            'location' => 'Remote',
-            'salary' => '$80k - $120k',
-            'image' => 'laravel.png',
-            'category' => 'web-development',
-        ]);
+    {
+        $jobs = [
+            [
+                'title' => 'Senior Web Developer',
+                'description' => 'We are looking for an experienced web developer to join our team.',
+                'company' => 'Tech Corp',
+                'location' => 'Remote',
+                'salary' => 7000,
+                'image' => 'images/companies/TechCorp.png',
+                'category' => 'web-development',
+            ],
+            [
+                'title' => 'Mobile App Developer',
+                'description' => 'Join our team to develop cutting-edge mobile applications.',
+                'company' => 'Dev Solutions',
+                'location' => 'New York',
+                'salary' => 6500,
+                'image' => 'images/companies/devSolutions.jpg',
+                'category' => 'mobile-development',
+            ],
+            [
+                'title' => 'Data Scientist',
+                'description' => 'We need a data scientist to analyze and interpret complex data.',
+                'company' => 'Data Innovators',
+                'location' => 'Berlin',
+                'salary' => 8000,
+                'image' => 'images/companies/dataInnovators.jpg',
+                'category' => 'data-science',
+            ],
+            // Mogat da se dobavqt oshte tuk
+        ];
 
-        Job::create([
-            'title' => 'Frontend Developer (React)',
-            'description' => 'We need a skilled React developer.',
-            'company' => 'Code Masters',
-            'location' => 'New York',
-            'salary' => '$70k - $100k',
-            'image' => 'react.png',
-            'category' => 'web-development', 
-        ]);
+        foreach ($jobs as $job) {
+            Job::create($job);
+        }
     }
 }

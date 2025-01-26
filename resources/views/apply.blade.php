@@ -53,7 +53,7 @@
     <nav class="navbar navbar-expand-lg py-3">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <h2 class="text-orange" style="color: #FF6B35; font-weight: 700;">TechJobs</h2>
+                <h2 class="text-orange" style="color: #FF6B35; font-weight: 700;">Jobe</h2>
             </a>
         </div>
     </nav>

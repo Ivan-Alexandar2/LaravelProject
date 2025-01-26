@@ -8,7 +8,7 @@ use App\Models\Job;
 // Начална страница
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 // Маршрути за обявите за работа
 Route::resource('jobs', JobController::class);

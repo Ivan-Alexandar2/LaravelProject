@@ -63,6 +63,8 @@ class ApplicationController extends Controller
     ]);
 
     // Пренасочване с успешно съобщение
-    return redirect()->route('home')->with('success', 'Your application has been submitted successfully!');
+    return view('welcome');
+    //return redirect()->route('home')->with('success', 'Your application has been submitted successfully!');
+    //}
     }
 }
