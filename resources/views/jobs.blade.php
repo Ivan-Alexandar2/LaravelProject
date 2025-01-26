@@ -124,20 +124,32 @@
         </div>
     </nav>
 
-    <!-- Job Categories Section -->
-    <section class="py-5">
-        <div class="container">
-            <h3 class="section-title text-center">Explore Job Categories</h3>
-            <div class="row g-4">
-                @foreach ($categories as $category)
-                <div class="col-md-4">
+   <!-- Job Categories Section -->
+   <section class="py-5">
+    <div class="container">
+        <h3 class="section-title text-center">Explore Job Categories</h3>
+        <div class="row g-4">
+        @foreach ([
+                ['title' => 'Web Development', 'slug' => 'web-development', 'icon' => 'fas fa-code'],
+                ['title' => 'Mobile Development', 'slug' => 'mobile-development', 'icon' => 'fas fa-mobile-alt'],
+                ['title' => 'Data Science', 'slug' => 'data-science', 'icon' => 'fas fa-chart-line'],
+                ['title' => 'UI/UX Design', 'slug' => 'ui-ux-design', 'icon' => 'fas fa-palette'],
+                ['title' => 'DevOps', 'slug' => 'devops', 'icon' => 'fas fa-server'],
+                ['title' => 'Cybersecurity', 'slug' => 'cybersecurity', 'icon' => 'fas fa-shield-alt'],
+                ['title' => 'Game Development', 'slug' => 'game-development', 'icon' => 'fas fa-gamepad'],
+                ['title' => 'AI & Machine Learning', 'slug' => 'ai-machine-learning', 'icon' => 'fas fa-robot'], 
+                ['title' => 'Cloud Computing', 'slug' => 'cloud-computing', 'icon' => 'fas fa-cloud'],
+            ] as $category)
+            <div class="col-md-4">
+                <a href="{{ route('category', ['category' => $category['slug']]) }}" class="text-decoration-none">
                     <div class="category-card">
                         <i class="{{ $category['icon'] }} icon-large"></i>
                         <h5>{{ $category['title'] }}</h5>
-                        <p class="job-count">{{ $category['jobs'] }}+ Jobs Available</p>
+                        <p class="job-count">300+ Jobs Available</p>
                     </div>
-                </div>
-                @endforeach
+                </a>
+            </div>
+            @endforeach
             </div>
         </div>
     </section>

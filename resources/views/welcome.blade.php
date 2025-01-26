@@ -165,7 +165,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container text-center">
-            <h1 class="display-4 mb-4">Find Your <span style="color: #FF6B35;">Dream Job</span> Now</h1>
+            <h1 class="display-4 mb-4">Find Your <span style="color: #FF6B35;">Dream IT Job</span> Now</h1>
             <p class="lead mb-5">Join thousands of companies and developers already using Jobe</p>
             <div class="row justify-content-center">
                 <div class="col-md-8">

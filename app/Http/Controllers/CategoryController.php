@@ -7,14 +7,11 @@ use App\Models\Job;
 
 class CategoryController extends Controller
 {
-    public function show($slug)
+    public function show($category)
     {
-        // Вземи обявите за съответната категория
-        $jobs = Job::where('category', $slug)->get();
-
-        // Връщане на view със списък на обявите
+        $jobs = Job::where('category', $category)->get();
         return view('category', [
-            'category' => $slug,
+            'category' => $category,
             'jobs' => $jobs,
         ]);
     }
